@@ -3,8 +3,8 @@ using namespace std;
 
 
 int main() {
-    cout << "Hello, World!" << endl;
-    cout << 7 / 3 << endl;
-    cout << 7.0 / 3.0 << endl;
+    int result = 0.5 * 100 * (100 + 1);
+    cout << result  << endl;
     
+    return 0;
 }
