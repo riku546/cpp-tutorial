@@ -1,14 +1,15 @@
 #include <bits/stdc++.h>
+#define rep(i, n) for (int i = 0; i < n; i++)
 using namespace std;
 
 int main()
 {
   vector<vector<int>> result;
   vector<int> a = {1, 2, 3};
-  for (size_t i = 0; i < 1 << a.size(); i++)
+  rep(i, 1 << a.size())
   {
     vector<int> temp = {};
-    for (size_t j = 0; j < a.size(); j++)
+    rep(j, a.size())
     {
       if (i & (1 << j))
       {
@@ -18,13 +19,9 @@ int main()
     result.push_back(temp);
   }
 
-  for (size_t i = 0; i < result.size(); i++)
+  rep(i, result.size())
   {
-    for (size_t j = 0; j < result[i].size(); j++)
-    {
-
-      cout << result[i][j] << " ";
-    }
+    rep(j, result[i].size()) cout << result[i][j] << " ";
     cout << endl;
   }
 }
