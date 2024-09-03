@@ -9,11 +9,7 @@ bool isCheep(int i, int D, int P, vector<int> F)
   for (int j = i; j > i - D; j--)
   { 
     if(j < 0) continue;
-
-    total += F[j];
-
-    
-  }
+    total += F[j];}
 
   return total > P ? true : false;
 }
