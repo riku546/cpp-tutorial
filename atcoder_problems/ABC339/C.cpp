@@ -2,33 +2,28 @@
 #define rep(i, m, n) for (int i = m; i < n; i++)
 using namespace std;
 
-int binary_search(vector<int> nums, int value)
-{
-  int left = 0;
-  int right = nums.size() - 1;
-
-  while (left <= right)
-  {
-    int center = (left + right) / 2;
-    if (nums[center] == value)
-    {
-      cout << center;
-      return 0;
-    }
-    else if (nums[center] > value)
-      right = center - 1;
-    else if (nums[center] < value)
-      left = center + 1;
-  }
-
-  cout << -1;
-  return 0;
-}
-
 int main()
 {
-  vector<int> nums = {1, 2, 4, 6, 7, 10};
-  int purpose_value;
-  cin >> purpose_value;
-  binary_search(nums, purpose_value);
+  int N;
+  cin >> N;
+  vector<int> A(N);
+  rep(i, 0, N) cin >> A[i];
+  long long total = reduce(A.begin(), A.end());
+  long long left = 0;
+  long long right = pow(10, 9);
+
+  while (left < right)
+  {
+    long long center = (left + right) / 2;
+    if (total + center < 0)
+    {
+      left = center + 1;
+    }
+    else
+      right = center;
+  }
+  // cout << endl;
+  // cout << left << endl;
+  cout << left << ' ' << total << endl;
+  cout << left + total << endl;
 }
