@@ -67,3 +67,6 @@ int main()
   cout << binary_search(10) << endl;
   cout << binary_search(300) << endl;
 }
+
+
+
