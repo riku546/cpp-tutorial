@@ -16,9 +16,14 @@
       "options": {
         "cwd": "${fileDirname}"
       },
-      "problemMatcher": ["$g++"],
+      "problemMatcher": [
+        "$g++"
+      ],
       "group": "build",
       "detail": "compiler: /usr/bin/g++"
-    }
+    },
+    
+
+
   ]
 }

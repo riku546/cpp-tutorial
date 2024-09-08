@@ -1,6 +1,5 @@
 {
   "version": "0.2.0",
-
   "configurations": [
     {
       "name": "c++ debug",
@@ -13,8 +12,7 @@
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "preLaunchTask": "build", // ビルドタスクの名前
-
+      "preLaunchTask": "build",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -25,52 +23,34 @@
           "description": "Set Disassembly Flavor to Intel",
           "text": "-gdb-set disassembly-flavor intel",
           "ignoreFailures": true
-        },
-
-       
+        }
       ]
-    }
-
-    // {
-    //   "name": "C++ Debug",
-    //   "type": "cppdbg",
-    //   "request": "launch",
-    //   "program": "${workspaceFolder}/${fileDirname}/${fileBasenameNoExtension}",
-    //   "args": [],
-    //   "stopAtEntry": false,
-    //   "cwd": "${workspaceFolder}",
-    //   "environment": [],
-    //   "externalConsole": false,
-    //   "MIMode": "gdb",
-    //   "setupCommands": [
-    //     {
-    //       "description": "Enable pretty-printing for gdb",
-    //       "text": "-enable-pretty-printing",
-    //       "ignoreFailures": true
-    //     },
-    //     {
-    //       "description": "Skip standard library files",
-    //       "text": "skip file /usr/include/*",
-    //       "ignoreFailures": true
-    //     },
-    //     {
-    //       "description": "Skip standard library files",
-    //       "text": "skip file /usr/lib/*",
-    //       "ignoreFailures": true
-    //     },
-    //     {
-    //       "description": "Skip local include files",
-    //       "text": "skip file /usr/local/include/*",
-    //       "ignoreFailures": true
-    //     },
-    //     {
-    //       "description": "Skip local library files",
-    //       "text": "skip file /usr/local/lib/*",
-    //       "ignoreFailures": true
-    //     }
-    //   ],
-    //   "preLaunchTask": "build",
-    //   // "miDebuggerPath": "/usr/bin/gdb"
-    // }
+    },
+    {
+      "name": "C++ Run",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          }
+      ],
+      "preLaunchTask": "build",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "logging": {
+          "trace": true,
+          "traceResponse": true,
+          "engineLogging": true
+      }
+  }
   ]
 }
