@@ -6,26 +6,23 @@ using namespace std;
 
 int main()
 {
-  int a, b;
-  cin >> a >> b;
+  string S;
+  cin >> S;
+  map<char, int> memory;
+  rep(i, 0, S.size()) memory[S[i]]++;
+  if (memory.size() == 26)
+  {
+    cout << "None" << endl;
+    return 0;
+  }
 
-  if (a <= 0 && b >= 0)
+  rep(i, 'a', 'z' + 1)
   {
-    cout << "Zero" << endl;
-  }
-  else if (a > 0 && b > 0)
-  {
-    cout << "Positive" << endl;
-  }
-  else if (a < 0 && b < 0)
-  {
-    if ((abs(a) - abs(b) + 1) % 2 == 0)
+    char t = (char)i;
+    if (memory[t] == 0)
     {
-      cout << "Positive" << endl;
-    }
-    else
-    {
-      cout << "Negative" << endl;
+      cout << t << endl;
+      return 0;
     }
   }
 }
