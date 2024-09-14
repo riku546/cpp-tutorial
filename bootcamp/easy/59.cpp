@@ -6,24 +6,35 @@ using namespace std;
 
 int main()
 {
-  int N;
-  cin >> N;
-  vector<int> a(N);
-  rep(i, 0, N) cin >> a[i];
-  int cnt = 0;
-  int ans;
-  int index = 1;
-  rep(i, 0, N)
+  string S;
+  cin >> S;
+  vector<int> memory = {};
+  if (S[0] != 'A')
   {
-    if (a[i] == index)
-    {
-      cnt++;
-      index++;
-    }
+    cout << "WA" << endl;
+    return 0;
   }
 
-  if (cnt == 0)
-    cout << -1 << endl;
-  else
-    cout << N - cnt << endl;
+  rep(i, 2, S.size() - 1)
+  {
+    if (S[i] == 'C')
+      memory.push_back(i);
+  }
+
+  if (memory.size() != 1)
+  {
+    cout << "WA" << endl;
+    return 0;
+  }
+
+  rep(i, 1, S.size())
+  {
+    if (i == memory[0])
+      continue;
+    if (S[i] >= 'a' && S[i] <= 'z') continue;
+    cout << "WA" << endl;
+    return 0;
+  }
+
+  cout << "AC" << endl;
 }
