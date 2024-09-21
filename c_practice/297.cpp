@@ -12,10 +12,7 @@ int main()
   rep(i, 0, S.size())
   {
     int w_cnt = 0, b_cnt = 0;
-    if (S[i] == 'w')
-      w_cnt++;
-    else
-      b_cnt++;
+
 
     rep(j, i, i + W + B)
     {
