@@ -29,7 +29,7 @@ int main()
   int top = 0;
   int second = 0;
 
-  for (pair<int, vector<int>> vec : memory)
+  for (auto vec : memory)
   {
     if (vec.second.back() > top)
     {
