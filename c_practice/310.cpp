@@ -10,38 +10,23 @@ int main()
   cin >> N;
   map<int, vector<string>> memory;
   set<string> S;
+  vector<string>s_array = {"aa"};
+  
   int cnt = 0;
+
   rep(i, 0, N)
   {
-    string temp;
+    string temp, ctemp;
     cin >> temp;
+    ctemp = temp;
+    if (S.size() == 0)
+      S.insert(temp);
 
-    if (memory[temp.size()].size() == 0)
-    {
-      
-      memory[temp.size()].push_back(temp);
-    }
-    else
-    {
-      bool flag = true;
-      string ctemp = temp;
-      reverse(ctemp.begin(), ctemp.end());
-      for (auto var : memory[temp.size()])
-      {
-        if (temp == var || ctemp == var)
-        {
-          flag = false;
-          break;
-        }
-      }
-      if (flag)
-        memory[temp.size()].push_back(temp);
-    }
+    reverse(ctemp.begin(), ctemp.end());
+    if (S.count(ctemp))
+      continue;
+    S.insert(temp);
   }
-  int ans = 0;
-  for (auto var : memory)
-  {
-    ans += var.second.size();
-  }
-  cout << ans << endl;
+
+  cout << S.size() << endl;
 }
