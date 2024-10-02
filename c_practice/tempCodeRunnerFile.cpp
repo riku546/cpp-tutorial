@@ -1,1 +1,1 @@
-top = max(top, point);
+cout
