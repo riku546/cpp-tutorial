@@ -10,7 +10,8 @@ int main(){
   int N;
   cin >> N;
 
-  vector<string> s = {"#"};
+  vector<string> s0 = {"#"};
+  
   
   
 }
