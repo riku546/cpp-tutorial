@@ -66,20 +66,20 @@ using namespace std;
 
 int main()
 {
-  int N;
-  cin >> N;
-  vector<ll> sum(N + 1);
-  rep(i, 0, N)
-  {
-    int a;
-    cin >> a;
-    sum[i + 1] = (ll)sum[i] + a;
-  }
 
-  rep(k, 1, N + 1)
+  int N, Q;
+  string S;
+  cin >> N >> Q >> S;
+  vector<int> memory(N - 1);
+  vector<ll> sum(N);
+  rep(i, 0, N - 1) memory[i] = (S[i] == S[i + 1]);
+  rep(i, 0, N - 1) sum[i + 1] = sum[i] + memory[i];
+
+  rep(i, 0, Q)
   {
-    ll ans = 0;
-    rep(j, 0, sum.size() - k) ans = max(ans, (ll)sum[j + k] - sum[j]);
-    cout << ans << endl;
+    int l, r;
+    cin >> l >> r;
+    l--, r--;
+    cout << sum[r] - sum[l] << endl;
   }
 }
