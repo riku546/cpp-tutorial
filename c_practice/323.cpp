@@ -47,7 +47,7 @@ int main()
     if (player_point[i] < top)
     {
       int cnt = 0;
-      rep(j, 0, M)
+      rep(j , 0 , M)
       {
         if (S[i][cA[j].second] != 'o')
         {
