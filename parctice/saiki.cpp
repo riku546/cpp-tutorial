@@ -43,8 +43,6 @@
 //   cout << fib(9) << endl;
 // }
 
-
-
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -78,5 +76,40 @@
 //     else cout << "No" << endl;
 // }
 
+#include <bits/stdc++.h>
+#define rep(i, m, n) for (int i = m; i < n; i++)
+using ull = unsigned long long;
+using ll = long long;
+using namespace std;
 
+int n, k;
 
+void recursion(vector<int> a, vector<int> r)
+{
+
+  if (a.size() == n)
+  {
+    int total = reduce(a.begin(), a.end());
+    if (total % k != 0)
+      return;
+    rep(i, 0, n) cout << a[i] << ' ';
+    cout << endl;
+    return;
+  }
+
+  rep(i, 1, r[a.size()] + 1)
+  {
+    a.push_back(i);
+    recursion(a, r);
+    a.pop_back();
+  }
+}
+
+int main()
+{
+  cin >> n >> k;
+  vector<int> r(n);
+  rep(i, 0, n) cin >> r[i];
+  vector<int> a;
+  recursion(a, r);
+}
