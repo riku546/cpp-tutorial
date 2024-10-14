@@ -9,7 +9,7 @@ int main()
   int N;
   string S;
   cin >> N >> S;
-  int ans = 0;
+  int ans = 1e9;
 
   vector<int> b(N + 1);
   vector<int> w(N + 1);
@@ -30,21 +30,27 @@ int main()
       w[i + 1] = w[i];
   }
 
-  int t = 0;
-  rep(i, 0, N)
+  bool bflag = true;
+  bool wflag = true;
+  rep(i, 0, N + 1)
   {
-    if (b[i + 1] == b[i] && i + 1 < N + 1)
-    {
-      int r = i;
-
-      while (b[r + 1] == b[r] && r + 1 < N + 1)
-        r++;
-
-      ans += min(b[r] - b[t], w[r] - w[i]);
-      t = b[r - 1];
-      i = r - 1;
-    }
+    if (b[i] != 0)
+      bflag = false;
   }
+
+  rep(i, 0, N + 1)
+  {
+    if (w[i] != 0)
+      wflag = false;
+  }
+
+  if (bflag || wflag)
+  {
+    cout << 0 << endl;
+    return 0;
+  }
+
+  rep(i, 1, N + 1) ans = min(ans, (b[i - 1] - b[0]) + (w.back() - w[i - 1]));
 
   cout << ans << endl;
 }
