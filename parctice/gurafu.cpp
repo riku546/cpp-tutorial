@@ -5,9 +5,24 @@ using ll = long long;
 using namespace std;
 using Graph = vector<vector<int>>;
 
+int n, m;
+vector<int> seen(5);
+vector<int> todo;
+
+void dfs(Graph G, int node)
+{
+  seen[node] = 1;
+  cout << node << endl;
+  for (auto var : G[node])
+  {
+    if (seen[var] == 1)
+      continue;
+    dfs(G, var);
+  }
+}
+
 int main()
 {
-  int n, m;
   cin >> n >> m;
   Graph G(n);
 
@@ -15,16 +30,7 @@ int main()
   {
     int a, b;
     cin >> a >> b;
-    G[a - 1].push_back(b);
+    G[a - 1].push_back(b - 1);
   }
-
-  rep(i, 0, n)
-  {
-    cout << i + 1 << ": ";
-    for (auto var : G[i])
-    {
-      cout << var << ' ';
-    }
-    cout << endl;
-  }
+  dfs(G, 0);
 }
