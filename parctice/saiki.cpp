@@ -76,6 +76,44 @@
 //     else cout << "No" << endl;
 // }
 
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int n, k;
+
+// void recursion(vector<int> a, vector<int> r)
+// {
+
+//   if (a.size() == n)
+//   {
+//     int total = reduce(a.begin(), a.end());
+//     if (total % k != 0)
+//       return;
+//     rep(i, 0, n) cout << a[i] << ' ';
+//     cout << endl;
+//     return;
+//   }
+
+//   rep(i, 1, r[a.size()] + 1)
+//   {
+//     a.push_back(i);
+//     recursion(a, r);
+//     a.pop_back();
+//   }
+// }
+
+// int main()
+// {
+//   cin >> n >> k;
+//   vector<int> r(n);
+//   rep(i, 0, n) cin >> r[i];
+//   vector<int> a;
+//   recursion(a, r);
+// }
+
 #include <bits/stdc++.h>
 #define rep(i, m, n) for (int i = m; i < n; i++)
 using ull = unsigned long long;
@@ -83,33 +121,39 @@ using ll = long long;
 using namespace std;
 
 int n, k;
+vector<int> r;
 
-void recursion(vector<int> a, vector<int> r)
+void recursion(vector<int> lst)
 {
-
-  if (a.size() == n)
+  if (lst.size() == n)
   {
-    int total = reduce(a.begin(), a.end());
-    if (total % k != 0)
+    
+    int sum = reduce(lst.begin(), lst.end());
+    if (sum % k == 0)
+    {
+      rep(i, 0, lst.size()) cout << lst[i] << ' ';
+      cout << endl;
       return;
-    rep(i, 0, n) cout << a[i] << ' ';
-    cout << endl;
-    return;
+    }
   }
 
-  rep(i, 1, r[a.size()] + 1)
+  rep(i, 1, r[lst.size()] + 1)
   {
-    a.push_back(i);
-    recursion(a, r);
-    a.pop_back();
+    lst.push_back(i);
+    recursion(lst);
+    lst.pop_back();
   }
 }
 
 int main()
 {
   cin >> n >> k;
-  vector<int> r(n);
-  rep(i, 0, n) cin >> r[i];
-  vector<int> a;
-  recursion(a, r);
+  rep(i, 0, n)
+  {
+    int temp;
+    cin >> temp;
+    r.push_back(temp);
+  }
+  vector<int> lst;
+  recursion(lst);
 }
