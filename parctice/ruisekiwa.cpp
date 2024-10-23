@@ -92,7 +92,6 @@
 // int main()
 // {
 
-
 //   int N, Q;
 //   string S;
 //   cin >> N >> Q >> S;
@@ -113,7 +112,6 @@
 //   rep(i, 0, N - K + 1) ans += sum[i + K] - sum[i];
 //   cout << ans << endl;
 // }
-
 
 // #include <bits/stdc++.h>
 // #define rep(i, m, n) for (int i = m; i < n; i++)
@@ -141,34 +139,33 @@
 //   }
 // }
 
-#include <bits/stdc++.h>
-#define rep(i, m, n) for (int i = m; i < n; i++)
-using ull = unsigned long long;
-using ll = long long;
-using namespace std;
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
 
-int main()
-{
-  int n;
-  string s;
-  cin >> n >> s;
-  
+// int main()
+// {
+//   int n;
+//   string s;
+//   cin >> n >> s;
 
-  vector<int> sum(n + 1);
-  rep(i, 0, n)
-  {
-    if (s[i] == 'E')
-      sum[i + 1] = sum[i] + 1;
-    else
-      sum[i + 1] = sum[i];
-  }
-  
+//   vector<int> sum(n + 1);
+//   rep(i, 0, n)
+//   {
+//     if (s[i] == 'E')
+//       sum[i + 1] = sum[i] + 1;
+//     else
+//       sum[i + 1] = sum[i];
+//   }
 
-  int ans = 3e6;
-  rep(i, 0, n)
-  {
-    ans = min(ans, i - (sum[i] - sum[0]) + (sum.back() - sum[i + 1]));
-    
-  }
-  cout << ans << endl;
-}
+//   int ans = 3e6;
+//   rep(i, 0, n)
+//   {
+//     ans = min(ans, i - (sum[i] - sum[0]) + (sum.back() - sum[i + 1]));
+//   }
+//   cout << ans << endl;
+// }
+
+
