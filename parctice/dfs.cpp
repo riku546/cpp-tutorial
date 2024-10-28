@@ -1,0 +1,102 @@
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+// using Graph = vector<vector<int>>;
+
+// int n, m;
+// vector<int> seen(5);
+// vector<int> todo;
+
+// void dfs(Graph G, int node)
+// {
+//   seen[node] = 1;
+//   cout << node << endl;
+//   for (auto var : G[node])
+//   {
+//     if (seen[var] == 1)
+//       continue;
+//     dfs(G, var);
+//   }
+// }
+
+// int main()
+// {
+//   cin >> n >> m;
+//   Graph G(n);
+
+//   rep(i, 0, m)
+//   {
+//     int a, b;
+//     cin >> a >> b;
+//     G[a - 1].push_back(b - 1);
+//   }
+//   dfs(G, 0);
+// }
+
+#include <bits/stdc++.h>
+#define rep(i, m, n) for (int i = m; i < n; i++)
+using ull = unsigned long long;
+using ll = long long;
+using namespace std;
+
+vector<int> seen(10000);
+void dfs(vector<vector<int>> g, int node)
+{
+  seen[node] = 1;
+  for (auto var : g[node])
+  {
+    if (seen[var])
+      continue;
+
+    dfs(g, var);
+  }
+}
+
+int main()
+{
+  vector<vector<int>> di = {{-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}};
+  int w, h;
+  cin >> w >> h;
+  vector<vector<int>> c(h, vector<int>(w));
+  rep(i, 0, h) rep(j, 0, w) cin >> c[i][j];
+  vector<vector<int>> g(w * h);
+  rep(y, 0, h)
+  {
+    rep(x, 0, w)
+    {
+      if (!c[y][x])
+        continue;
+      for (auto var : di)
+      {
+        int dx = x + var[1];
+        int dy = y + var[0];
+        if (dx <= -1 || dx >= w)
+          continue;
+        if (dy <= -1 || dy >= h)
+          continue;
+        if (c[dy][dx])
+        {
+          g[(x + (y * w))].push_back(dx + (dy * w));
+          // g[dx + (dy * w)].push_back(x + (y * w));
+        }
+      }
+    }
+  }
+  int cnt = 0;
+  rep(i, 0, c.size())
+  {
+    rep(j, 0, c[i].size())
+    {
+      if (seen[j + (i * w)])
+        continue;
+      if (c[i][j] == 0)
+        continue;
+
+      dfs(g, j + (i * w));
+      cnt++;
+    }
+  }
+  cout << cnt << endl;
+}
