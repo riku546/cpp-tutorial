@@ -79,8 +79,8 @@ int main(){
 
     }
 
-    ll a_sum = reduce(a.begin() , a.end() );
-    ll b_sum = reduce(b.begin() , b.end() );
+    ll a_sum = reduce(a.begin() , a.end(), 0LL);
+    ll b_sum = reduce(b.begin() , b.end() , 0LL);
     
     ans = min(ans , max(a_sum , b_sum));
   }

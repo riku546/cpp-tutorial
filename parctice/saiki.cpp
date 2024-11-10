@@ -114,46 +114,48 @@
 //   recursion(a, r);
 // }
 
-#include <bits/stdc++.h>
-#define rep(i, m, n) for (int i = m; i < n; i++)
-using ull = unsigned long long;
-using ll = long long;
-using namespace std;
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
 
-int n, k;
-vector<int> r;
+// int n, k;
+// vector<int> r;
 
-void recursion(vector<int> lst)
-{
-  if (lst.size() == n)
-  {
+// void recursion(vector<int> lst)
+// {
+//   if (lst.size() == n)
+//   {
     
-    int sum = reduce(lst.begin(), lst.end());
-    if (sum % k == 0)
-    {
-      rep(i, 0, lst.size()) cout << lst[i] << ' ';
-      cout << endl;
-      return;
-    }
-  }
+//     int sum = reduce(lst.begin(), lst.end());
+//     if (sum % k == 0)
+//     {
+//       rep(i, 0, lst.size()) cout << lst[i] << ' ';
+//       cout << endl;
+//       return;
+//     }
+//   }
 
-  rep(i, 1, r[lst.size()] + 1)
-  {
-    lst.push_back(i);
-    recursion(lst);
-    lst.pop_back();
-  }
-}
+//   rep(i, 1, r[lst.size()] + 1)
+//   {
+//     lst.push_back(i);
+//     recursion(lst);
+//     lst.pop_back();
+//   }
+// }
 
-int main()
-{
-  cin >> n >> k;
-  rep(i, 0, n)
-  {
-    int temp;
-    cin >> temp;
-    r.push_back(temp);
-  }
-  vector<int> lst;
-  recursion(lst);
-}
+// int main()
+// {
+//   cin >> n >> k;
+//   rep(i, 0, n)
+//   {
+//     int temp;
+//     cin >> temp;
+//     r.push_back(temp);
+//   }
+//   vector<int> lst;
+//   recursion(lst);
+// }
+
+
