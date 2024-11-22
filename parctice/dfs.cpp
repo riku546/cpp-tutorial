@@ -101,27 +101,69 @@
 //   cout << cnt << endl;
 // }
 
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// void dfs(vector<int>temp , int num , int len){
+//   if(temp.size() == len){
+//     rep(i , 0 , temp.size()) cout << temp[i] << ' ';
+//     cout << endl;
+//     return ;
+//   }
+
+//   rep(i , 1 , num + 1){
+//     temp.push_back(i);
+//     dfs(temp , num , len);
+//     temp.pop_back();
+//   }
+// }
+
+// int main(){
+//   vector<int>temp = {};
+//   dfs(temp , 3 , 3);
+// }
+
+
+
 #include <bits/stdc++.h>
 #define rep(i, m, n) for (int i = m; i < n; i++)
 using ull = unsigned long long;
 using ll = long long;
 using namespace std;
 
-void dfs(vector<int>temp , int num , int len){
-  if(temp.size() == len){
-    rep(i , 0 , temp.size()) cout << temp[i] << ' ';
-    cout << endl;
-    return ;
-  }
+vector<int>temp(101);
 
-  rep(i , 1 , num + 1){
-    temp.push_back(i);
-    dfs(temp , num , len);
-    temp.pop_back();
+void dfs(vector<vector<int>>G , int node){
+  temp[node] = 1;
+  for(auto var : G[node])
+  {
+    if(temp[var])continue;
+    dfs(G , var);
   }
 }
 
 int main(){
-  vector<int>temp = {};
-  dfs(temp , 3 , 3);
+  int n , m;
+  cin >> n >> m;
+  vector<vector<int>>G(n);
+  rep(i , 0 , m){
+    int u1 , u2;
+    cin >> u1 >> u2;
+    u1--;u2--;
+    G[u1].push_back(u2);
+    G[u2].push_back(u1);
+  }
+
+  int ans = 0;
+  rep(i , 0 , n){
+    if(temp[i]) continue;
+    dfs(G , i);
+    ans++;
+  }
+
+  cout  << ans << endl;
+  
 }
