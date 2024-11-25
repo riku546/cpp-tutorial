@@ -9,7 +9,7 @@ int main()
   int N;
   string S;
   cin >> N >> S;
-  int ans = 1e9;
+  int ans = 2e9;
 
   vector<int> b(N + 1);
   vector<int> w(N + 1);
@@ -30,27 +30,14 @@ int main()
       w[i + 1] = w[i];
   }
 
-  bool bflag = true;
-  bool wflag = true;
-  rep(i, 0, N + 1)
-  {
-    if (b[i] != 0)
-      bflag = false;
-  }
 
-  rep(i, 0, N + 1)
-  {
-    if (w[i] != 0)
-      wflag = false;
-  }
-
-  if (bflag || wflag)
+  if (S == string(N , '.') || S == string(N , '#'))
   {
     cout << 0 << endl;
     return 0;
   }
 
-  rep(i, 1, N + 1) ans = min(ans, (b[i - 1] - b[0]) + (w.back() - w[i - 1]));
+  rep(i, 1, N + 1) ans = min(ans, (b[i - 1] - b[0]) + (w[N] - w[i - 1]));
 
   cout << ans << endl;
 }
