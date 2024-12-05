@@ -191,29 +191,58 @@
 //   cout << ans << endl;
 // }
 
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   string s;
+//   cin >> n >> s;
+//   vector<int>cnt_east(n + 1);
+//   rep(i , 1 , n + 1){
+//     if(s[i - 1] == 'E') {
+//       cnt_east[i] = cnt_east[i - 1] + 1;
+//     }else{
+//       cnt_east[i] = cnt_east[i - 1];
+//     }
+//   }
+
+//   int ans = 3e6;
+//   rep(i , 0  , n){
+//     ans = min(ans , i - (cnt_east[i] - cnt_east[0]) + (cnt_east[n] - cnt_east[i + 1]));
+//   }
+//   cout << ans << endl;
+// }
+
+
 #include <bits/stdc++.h>
 #define rep(i, m, n) for (int i = m; i < n; i++)
 using ull = unsigned long long;
 using ll = long long;
 using namespace std;
 
-int main()
-{
-  int n;
+
+
+int main(){
+  int n , q; 
+  cin >> n >> q;
   string s;
-  cin >> n >> s;
-  vector<int>cnt_east(n + 1);
-  rep(i , 1 , n + 1){
-    if(s[i - 1] == 'E') {
-      cnt_east[i] = cnt_east[i - 1] + 1;
-    }else{
-      cnt_east[i] = cnt_east[i - 1];
-    }
+  cin >> s;
+
+  vector<int>temp (n + 2);
+  rep(i , 0 , n) {
+    if(s[i] == s[i + 1]) temp[i+2] = temp[i+1] + 1;
+    else temp[i + 2] = temp[i+1];
   }
 
-  int ans = 3e6;
-  rep(i , 0  , n){
-    ans = min(ans , i - (cnt_east[i] - cnt_east[0]) + (cnt_east[n] - cnt_east[i + 1]));
+  rep(i ,  0 , q) {
+    int l , r;
+    cin >> l >> r;
+    
+    cout << temp[r] - temp[l] << endl;
   }
-  cout << ans << endl;
 }
