@@ -7,7 +7,7 @@ using namespace std;
 int h, w;
 int ans = 0;
 
-void recursion(int x, int y, map<int, int> temp , vector<vector<int>>grid)
+void recursion(int x, int y, map<int, int> temp, vector<vector<int>> grid)
 {
   if (x < 0 || x > w - 1)
     return;
@@ -21,9 +21,8 @@ void recursion(int x, int y, map<int, int> temp , vector<vector<int>>grid)
   if (x == w - 1 && y == h - 1)
     ans++;
 
-
-  recursion(x + 1, y, temp , grid);
-  recursion(x, y + 1, temp , grid);
+  recursion(x + 1, y, temp, grid);
+  recursion(x, y + 1, temp, grid);
 }
 
 int main()
@@ -32,6 +31,6 @@ int main()
   vector<vector<int>> grid(h, vector<int>(w));
   rep(i, 0, h) rep(j, 0, w) cin >> grid[i][j];
   map<int, int> temp;
-  recursion(0, 0, temp , grid);
+  recursion(0, 0, temp, grid);
   cout << ans << endl;
 }
