@@ -5,12 +5,37 @@ using ll = long long;
 using namespace std;
 
 
+int main()
+{
+  string x;
+  int n;
+  cin >> x >> n;
+  vector<vector<int>> temp(n);
+  map<char, int> p1;
+  map<int, char> p2;
 
-int main(){
-  vector<vector<int>>list = {{2 , 1 , 2} , {1 , 2, 3} , {1 , 2 , 2} , {2 , 2 ,2}};
-  sort(list.begin() , list.end());
-  rep(i , 0 , list.size()) {
-    rep(j , 0 ,list[i].size()) cout << list[i][j] << ' ';
+  rep(i, 0, x.size())
+  {
+    p1[x[i]] = i + 1;
+    p2[i + 1] = x[i];
+  }
+
+  rep(i, 0, n)
+  {
+    string s;
+    cin >> s;
+
+    rep(j, 0, s.size()) temp[i].push_back(p1[s[j]]);
+  }
+
+  sort(temp.begin(), temp.end());
+  rep(i, 0, n)
+  {
+    rep(j, 0, temp[i].size())
+    {
+      cout << p2[temp[i][j]] ;
+    }
+
     cout << endl;
   }
 }
