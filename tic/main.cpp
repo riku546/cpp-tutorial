@@ -84,5 +84,5 @@ int main()
 
   cout << "-------------------------" << endl;
   cout << "winner" << ' ';
-  turn == 1 ? cout << 'x' : cout << 'o';
+  turn == 1 ? cout << 'x' : cout << 'o' << endl;
 }
