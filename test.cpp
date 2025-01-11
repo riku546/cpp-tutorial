@@ -110,6 +110,8 @@ int main()
     }
   }
 
+  
+
   string ans = "";
   
   rep(i, 0, rle.size()) ans += string(rle[i].second, rle[i].first);
