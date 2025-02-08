@@ -129,49 +129,109 @@
 //   cout << ans << endl;
 // }
 
-#include <bits/stdc++.h>
-#define rep(i, m, n) for (int i = m; i < n; i++)
-using ull = unsigned long long;
-using ll = long long;
-using namespace std;
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
 
-vector<bool> seen(100);
+// vector<bool> seen(100);
 
-void dfs(vector<vector<int>> grid, int node)
-{
-  seen[node] = true;
+// void dfs(vector<vector<int>> grid, int node)
+// {
+//   seen[node] = true;
 
-  for (auto var : grid[node])
-  {
-    if (seen[var])
-      continue;
-    dfs(grid, var);
-  }
-}
+//   for (auto var : grid[node])
+//   {
+//     if (seen[var])
+//       continue;
+//     dfs(grid, var);
+//   }
+// }
 
-int main()
-{
-  int n, m;
-  cin >> n >> m;
-  vector<vector<int>> grid(n);
-  rep(i, 0, m)
-  {
-    int n1, n2;
-    cin >> n1 >> n2;
-    n1--;
-    n2--;
-    grid[n1].push_back(n2);
-    grid[n2].push_back(n1);
-  }
+// int main()
+// {
+//   int n, m;
+//   cin >> n >> m;
+//   vector<vector<int>> grid(n);
+//   rep(i, 0, m)
+//   {
+//     int n1, n2;
+//     cin >> n1 >> n2;
+//     n1--;
+//     n2--;
+//     grid[n1].push_back(n2);
+//     grid[n2].push_back(n1);
+//   }
 
-  int ans = 0;
-  rep(i, 0, n)
-  {
-    if (seen[i])
-      continue;
-    dfs(grid, i);
-    ans++;
-  }
+//   int ans = 0;
+//   rep(i, 0, n)
+//   {
+//     if (seen[i])
+//       continue;
+//     dfs(grid, i);
+//     ans++;
+//   }
 
-  cout << ans << endl;
-}
+//   cout << ans << endl;
+// }
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n, k;
+//   cin >> n >> k;
+//   string s;
+//   cin >> s;
+
+//   vector<pair<char , int>>rle;
+//   rep(i , 0 , n){
+//     if(rle.size() && rle.back().first == s[i]) rle.back().second++;
+//     else rle.push_back(make_pair(s[i] , 1));
+//   }
+
+//   int one_cnt = 0;
+//   rep(i , 0 , rle.size()){
+//     if(rle[i].first == '1') one_cnt++;
+//     if(one_cnt == k) {
+//       swap(rle[i - 1] , rle[i]);
+//     }
+//   }
+
+//   rep(i , 0 , rle.size()){
+//     rep(j , 0 , rle[i].second){
+//       cout << rle[i].first ;
+//     }
+//   }
+//   cout << endl;
+// }
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+//   vector<int> a(n);
+//   rep(i, 0, n) cin >> a[i];
+
+//   vector<ll>ea(n+1);
+//   rep(i , 0 , n) ea[i + 1] = ea[i] + a[i];
+
+  
+//   rep(k , 1, n + 1) {
+//     ll ans = 0;
+//     rep(j , 0 , n - k + 1) ans = max(ans , (ll)ea[j + k] - ea[j]);
+//     cout << ans << endl;
+//   }
+  
+// }
