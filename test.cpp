@@ -129,15 +129,49 @@
 //   cout << ans << endl;
 // }
 
-
 #include <bits/stdc++.h>
 #define rep(i, m, n) for (int i = m; i < n; i++)
 using ull = unsigned long long;
 using ll = long long;
 using namespace std;
 
+vector<bool> seen(100);
 
+void dfs(vector<vector<int>> grid, int node)
+{
+  seen[node] = true;
 
-int main(){
-  
+  for (auto var : grid[node])
+  {
+    if (seen[var])
+      continue;
+    dfs(grid, var);
+  }
+}
+
+int main()
+{
+  int n, m;
+  cin >> n >> m;
+  vector<vector<int>> grid(n);
+  rep(i, 0, m)
+  {
+    int n1, n2;
+    cin >> n1 >> n2;
+    n1--;
+    n2--;
+    grid[n1].push_back(n2);
+    grid[n2].push_back(n1);
+  }
+
+  int ans = 0;
+  rep(i, 0, n)
+  {
+    if (seen[i])
+      continue;
+    dfs(grid, i);
+    ans++;
+  }
+
+  cout << ans << endl;
 }
