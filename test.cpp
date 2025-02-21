@@ -8,24 +8,68 @@
 // {
 //   int n;
 //   cin >> n;
-//   vector<int> a(n);
-//   rep(i, 0, n) cin >> a[i];
-
-//   int right = 0;
-//   ll ans = 0;
-
-//   rep(left, 0, n)
+//   int sum = 0;
+//   rep(i, 0, n - 1)
 //   {
-//     while (right < n && a[right] < a[left] * 2)
+//     int temp;
+//     cin >> temp;
+//     sum += temp;
+//   }
+
+//   cout << -1 * sum << endl;
+// }
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   string s;
+//   cin >> s;
+
+//   vector<int> ans(100);
+//   map<char, int> temp;
+
+//   rep(i, 0, s.size()) temp[s[i]]++;
+
+//   for (auto var : temp)
+//   {
+//     ans[var.second - 1]++;
+//   }
+
+//   rep(i, 0, ans.size())
+//   {
+//     if (ans[i] != 0 && ans[i] != 2)
 //     {
-//       right++;
+//       cout << "No" << endl;
+//       return 0;
 //     }
+//   }
 
-//     ans += n - right;
+//   cout << "Yes" << endl;
+// }
 
-//     // whileでrightがインクリメントされなかったとき
-//     if (left == right)
-//       right++;
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+//   string ans = "";
+
+//   rep(i, 1, n + 1)
+//   {
+//     if (i % 3 == 0)
+//       ans.push_back('x');
+//     else
+//       ans.push_back('o');
 //   }
 
 //   cout << ans << endl;
@@ -40,70 +84,59 @@
 // int main()
 // {
 //   int n;
-//   ll k;
-//   cin >> n >> k;
-//   vector<int> s(n);
-//   rep(i, 0, n) cin >> s[i];
-
-//   rep(i , 0 , n){
-//     if(s[i] == 0){
-//       cout << n << endl;
-//       return 0;
-//     }
+//   cin >> n;
+//   vector<pair<int, int>> grid(n);
+//   rep(i, 0, n)
+//   {
+//     int x, y;
+//     cin >> x >> y;
+//     grid[i].first = x;
+//     grid[i].second = y;
 //   }
 
-//   int ans = 0;
-//   int right = 0;
-//   ll temp = 1;
-
-//   rep(left, 0, n)
+//   rep(i, 0, n)
 //   {
-//     while (right < n && (ll)temp * s[right] <= k)
+//     pair<int, int> ans = make_pair(0, 0);
+//     for (int j = n - 1; j > -1; j--)
 //     {
-//       temp *= s[right];
-//       right++;
+//       if (i == j)
+//         continue;
+
+//       int distance = pow(grid[i].first - grid[j].first, 2) + pow(grid[i].second - grid[j].second, 2);
+//       if (distance >= ans.first)
+//         ans = make_pair(distance, j);
 //     }
 
-//     ans = max(ans, right - left);
+//     cout << ans.second + 1 << endl;
+//   }
+// }
 
-//     if (left == right)
-//       right++;
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+//   map<int, int> temp;
+//   rep(i, 0, n)
+//   {
+//     int a, c;
+//     cin >> a >> c;
+
+//     if (temp[c] == 0)
+//       temp[c] = a;
 //     else
-//       temp /= s[left];
+//       temp[c] = min(temp[c], a);
+//   }
+//   int ans = 0;
+//   for (auto var : temp)
+//   {
+//     ans = max(ans, var.second);
 //   }
 
 //   cout << ans << endl;
 // }
-
-#include <bits/stdc++.h>
-#define rep(i, m, n) for (int i = m; i < n; i++)
-using ull = unsigned long long;
-using ll = long long;
-using namespace std;
-
-int main()
-{
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i, 0, n) cin >> a[i];
-
-  int right = 0;
-  ll ans = 0;
-
-  rep(left, 0, n)
-  {
-    while (right < n - 1 && a[right] < a[right + 1])
-    {
-      right++;
-    }
-
-    ans += right - left;
-
-    if (right == left)
-    {
-      right++;
-    }
-  }
-  cout << ans + n << endl;
-}
