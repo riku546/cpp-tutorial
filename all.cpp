@@ -557,3 +557,76 @@
 // }
 
 
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n, m;
+//   cin >> n >> m;
+//   int ans = 0;
+
+//   set<pair<int, int>> temp;
+
+//   rep(i, 0, m)
+//   {
+//     int u1, u2;
+//     cin >> u1 >> u2;
+
+//     if (u1 == u2)
+//     {
+//       ans++;
+//       continue;
+//     }
+
+//     if (temp.count(make_pair(u1, u2)) || temp.count(make_pair(u2, u1)))
+//     {
+//       ans++;
+//       continue;
+//     }
+
+//     temp.insert(make_pair(u1, u2));
+//     temp.insert(make_pair(u2, u1));
+//   }
+
+//   cout << ans << endl;
+// }
+
+
+
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+//   vector<int> k(n);
+
+//   rep(i, 0, n) cin >> k[i];
+
+//   ll ans = 2e10;
+
+//   rep(i, 0, 1 << n)
+//   {
+//     ll a = 0, b = 0;
+//     rep(j, 0, n)
+//     {
+//       if (i & (1 << j))
+//         a += k[j];
+//       else
+//         b += k[j];
+//     }
+
+//     ans = min(ans, max(a, b));
+//   }
+
+//   cout << ans << endl;
+// }
