@@ -28,3 +28,38 @@
 //   cout << sum << endl;
 // }
 
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+
+//   vector<ll> a(n);
+//   rep(i, 0, n) cin >> a[i];
+
+//   ll ans = 0;
+//   ll d;
+//   int right = 1;
+
+//   rep(left, 0, n)
+//   {
+//     while (right < n - 1 && a[right + 1] - a[right] == a[right] - a[right - 1])
+//     {
+//       right++;
+//     }
+
+//     ans += right - left;
+
+//     if (right < n - 1 && right - 1 == left)
+//     {
+//       right++;
+//     }
+//   }
+
+//   cout << ans + n << endl;
+// }

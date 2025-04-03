@@ -487,3 +487,73 @@
 
 //   cout << ans << endl;
 // }
+
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+
+//   int ans = 0;
+//   rep(i, 1, n + 1)
+//   {
+//     if (i % 2 != 0)
+//     {
+//       int cnt = 0;
+//       rep(j, 1, i + 1)
+//       {
+//         if (i % j == 0)
+//           cnt++;
+//       }
+
+//       if (cnt == 8)
+//       {
+//         ans++;
+//       }
+//     }
+//   }
+
+//   cout << ans << endl;
+// }
+
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n, m;
+//   cin >> n >> m;
+//   vector<vector<int>> a(n, vector<int>(m));
+//   ll ans = 0;
+
+//   rep(i, 0, n) rep(j, 0, m) cin >> a[i][j];
+
+//   rep(i, 0, m)
+//   {
+//     rep(j, i + 1, m)
+//     {
+//       ll sum = 0;
+
+//       rep(k, 0, n)
+//       {
+//         sum += max(a[k][i], a[k][j]);
+//       }
+
+//       ans = max(ans, sum);
+//     }
+//   }
+
+//   cout << ans << endl;
+// }
+
+
