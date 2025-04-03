@@ -488,7 +488,6 @@
 //   cout << ans << endl;
 // }
 
-
 // #include <bits/stdc++.h>
 // #define rep(i, m, n) for (int i = m; i < n; i++)
 // using ull = unsigned long long;
@@ -522,7 +521,6 @@
 //   cout << ans << endl;
 // }
 
-
 // #include <bits/stdc++.h>
 // #define rep(i, m, n) for (int i = m; i < n; i++)
 // using ull = unsigned long long;
@@ -555,7 +553,6 @@
 
 //   cout << ans << endl;
 // }
-
 
 // #include <bits/stdc++.h>
 // #define rep(i, m, n) for (int i = m; i < n; i++)
@@ -595,9 +592,6 @@
 //   cout << ans << endl;
 // }
 
-
-
-
 // #include <bits/stdc++.h>
 // #define rep(i, m, n) for (int i = m; i < n; i++)
 // using ull = unsigned long long;
@@ -626,6 +620,61 @@
 //     }
 
 //     ans = min(ans, max(a, b));
+//   }
+
+//   cout << ans << endl;
+// }
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+//   int n;
+//   cin >> n;
+//   vector<int> A(n);
+//   vector<int> b(n, -1);
+//   map<int, int> temp;
+//   rep(i, 0, n)
+//   {
+//     int a;
+//     cin >> a;
+//     if (temp[a])
+//       b[i] = temp[a];
+//     temp[a] = i + 1;
+//   }
+
+//   rep(i, 0, n) cout << b[i] << " ";
+//   cout << endl;
+// }
+
+// #include <bits/stdc++.h>
+// #define rep(i, m, n) for (int i = m; i < n; i++)
+// using ull = unsigned long long;
+// using ll = long long;
+// using namespace std;
+
+// int main()
+// {
+
+//   int n;
+//   cin >> n;
+
+//   vector<int> nums(n);
+//   rep(i, 0, n) cin >> nums[i];
+
+//   ll ans = 0;
+
+//   rep(i, 0, n)
+//   {
+//     int target = nums[i];
+
+//     auto result = lower_bound(nums.begin(), nums.end(), target * 2) - nums.begin();
+
+//     ans += n - result;
 //   }
 
 //   cout << ans << endl;
