@@ -4,23 +4,27 @@ using ull = unsigned long long;
 using ll = long long;
 using namespace std;
 
-int main(){
+int main()
+{
 
-int q;cin >> q;
-queue<int>que;
+    int q;
+    cin >> q;
+    queue<int> que;
 
-rep(i , 0 , q) {
-    int q1 , q2;
-    cin >> q1;
-    if(q1 == 1){
-        cin >> q2;
-        que.push(q2);
-    }else{
-        
-        cout << que.front() << endl;
-        que.pop();
+    rep(i, 0, q)
+    {
+        int q1, q2;
+        cin >> q1;
+        if (q1 == 1)
+        {
+            cin >> q2;
+            que.push(q2);
+        }
+        else
+        {
+
+            cout << que.front() << endl;
+            que.pop();
+        }
     }
-}
-
-
 }
