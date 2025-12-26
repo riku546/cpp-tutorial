@@ -1,19 +1,25 @@
 {
-  "kyoupuro": {
-    "prefix": "kyoupuro",
-    "body": [
-      "#include <bits/stdc++.h>",
-      "#define rep(i, m, n) for (int i = m; i < n; i++)",
-      "using ull = unsigned long long;",
-      "using ll = long long;",
-      "using namespace std;",
-      "",
-      "",
-      "",
-      "int main(){",
-      "",
-      "}"
-    ],
-    "description": "競プロ雛形"
+  "cpp": {
+"prefix": "cpp",
+		"body": [
+			"#include <iostream>",
+			"#include <vector>",
+			"#include <string>",
+			"#include <algorithm>",
+			"#include <cmath>",
+			"#include <map>",
+			"#include <set>",
+			"#include <queue>",
+			"#include <iomanip>",
+			"",
+			"using namespace std;",
+			"#define rep(i, n) for (int i = 0; i < (int)(n); i++)",
+			"",
+			"int main() {",
+			"    $0",
+			"    return 0;",
+			"}"
+		],
+		"description": "Basic CP template"
   }
 }
